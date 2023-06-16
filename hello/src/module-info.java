@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author kosa
+ *
+ */
+module hello {
+}
