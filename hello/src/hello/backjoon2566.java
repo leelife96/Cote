@@ -1,7 +1,7 @@
 package hello;
 import java.util.Scanner;
 
-public class Test {
+public class backjoon2566 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in); 
         
@@ -25,7 +25,7 @@ public class Test {
         
       
         
-        System.out.println(max);
+        System.out.println(max); 
         System.out.println((a+1) + " " + (b+1));
         
     }
