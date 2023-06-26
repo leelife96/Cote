@@ -10,8 +10,6 @@ public class test {
         int M = sc.nextInt();
         
         System.out.println(calcu(N,M));
-        
-    
 
       }
     
