@@ -1,4 +1,4 @@
-package tt;
+package Shopping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +49,7 @@ class ShoppingCart {
     }
 }
 
-public class test {
+public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int choice;
@@ -66,7 +66,7 @@ public class test {
 
             switch (choice) {
                 case 1:
-                    displayProducts();
+                    Shoppingmall();
                     break;
                 case 2:
                 	customermanagement(scanner, cart);
@@ -87,7 +87,7 @@ public class test {
         scanner.close();
     }
 
-    private static void displayProducts() {
+    private static void Shoppingmall() {
     	System.out.println();
         System.out.println("상품 목록:");
         System.out.println("1. 휴대폰 - 100000원");
@@ -96,7 +96,8 @@ public class test {
     }
 
     private static void customermanagement(Scanner scanner, ShoppingCart cart) {
-        
+    	
+    	System.out.println();
     	System.out.println("*** 고객 관리 *** ");
     	System.out.println("1. 입력");
     	System.out.println("2. 수정");
@@ -114,6 +115,7 @@ public class test {
                 
             case 2:
                 cart.addProduct(new Product("휴대폰", 100000));
+     
                 System.out.println("수정");
                 break;
                 
