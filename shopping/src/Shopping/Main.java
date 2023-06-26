@@ -54,7 +54,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int choice;
         ShoppingCart cart = new ShoppingCart();
-
+        Customermanagement cm = new  Customermanagement();
+        Shoppingmall sm = new Shoppingmall();
         
             System.out.println("쇼핑몰 프로그램");
             System.out.println("1. 쇼핑몰");
@@ -66,10 +67,10 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    Shoppingmall();
+                    sm.b();
                     break;
                 case 2:
-                	customermanagement(scanner, cart);
+                	cm.a(scanner, cart);
                     break;
                 case 3:
                     cart.displayCart();
@@ -87,48 +88,7 @@ public class Main {
         scanner.close();
     }
 
-    private static void Shoppingmall() {
-    	System.out.println();
-        System.out.println("상품 목록:");
-        System.out.println("1. 휴대폰 - 100000원");
-        System.out.println("2. 노트북 - 500000원");
-        System.out.println("3. 티셔츠 - 20000원");
-    }
-
-    private static void customermanagement(Scanner scanner, ShoppingCart cart) {
-    	
-    	System.out.println();
-    	System.out.println("*** 고객 관리 *** ");
-    	System.out.println("1. 입력");
-    	System.out.println("2. 수정");
-    	System.out.println("3. 삭제");
-    	System.out.println("0. 메인메뉴로 돌아가기");
-        
-        int productNumber = scanner.nextInt();
-        
-        
-        switch (productNumber) {
-            case 1:
-                cart.addProduct(new Product("휴대폰", 100000));
-                System.out.println("입력");
-                break;
-                
-            case 2:
-                cart.addProduct(new Product("휴대폰", 100000));
-     
-                System.out.println("수정");
-                break;
-                
-            case 3:
-                cart.addProduct(new Product("휴대폰", 100000));
-                System.out.println("삭제");
-                break;
-                
-            case 0:
-                cart.addProduct(new Product("휴대폰", 100000));
-                System.out.println("메인 메뉴로 돌아가기");
-                break;
-        }
-    }
+   
+    
 }
 
