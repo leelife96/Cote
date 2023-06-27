@@ -9,7 +9,7 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		
 		CustomerManagementss cm = new CustomerManagementss();
-		Customer ci = new Customer(null, null);
+		ProductManagement pm = new ProductManagement();
 		
 		
 		
@@ -22,9 +22,9 @@ public class Main {
               System.out.println("1. 쇼핑몰");
               System.out.println("2. 고객관리");
               System.out.println("3. 제품 관리");
-              System.out.println("0. 종료");
-              System.out.println("어떤 메뉴를 선택하시겠습니까? ");
-              System.out.print("***************");
+              System.out.print("어떤 메뉴를 선택하시겠습니까? ");
+                 
+              
               int menuChoice = sc.nextInt();
               sc.nextLine();
               
@@ -34,6 +34,9 @@ public class Main {
               		break;
               	case 2:
               		cm.CusMan();
+              		break;
+              	case 3:
+              		pm.pmmethod();
               		break;
               		
               }

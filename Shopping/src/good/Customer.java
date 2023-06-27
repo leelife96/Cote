@@ -5,8 +5,8 @@ class Customer {
     private String name;
     private String phoneNumber;
 
-    public Customer(String name2, String phoneNumber) {
-        this.name = name2;
+    public Customer(String name, String phoneNumber) {
+        this.name = name;
         this.phoneNumber = phoneNumber;
     }
 
