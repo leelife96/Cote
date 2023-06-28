@@ -1,34 +1,13 @@
 package good;
 
 import java.util.*;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 
 public class CustomerManagementss {
-	 
+	
     private static List<Customer> customers = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
-    
-    String filePath = "C:\\Program Files\\Javaling\\DB.txt";
-    
-    
-    try {
-        BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
-
-        for (String data : customers) {
-            writer.write(data);
-            writer.newLine();  // 다음 데이터를 쓸 때 줄바꿈
-        }
-
-        writer.close();
-        System.out.println("데이터가 파일에 저장되었습니다.");
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-    
-    
     
     
 
@@ -44,8 +23,8 @@ public class CustomerManagementss {
             System.out.println("3. 삭제");
             System.out.println("4. 조회");
             System.out.println("5. 종료");
-            System.out.println("메뉴를 선택하세요: ");
-            System.out.print("***************");
+            System.out.print("메뉴를 선택하세요: ");
+            
             int choice = scanner.nextInt();
             scanner.nextLine(); // 개행 문자 제거
 
@@ -73,6 +52,8 @@ public class CustomerManagementss {
         }
         scanner.close();
     }
+    
+
 
     private static void addCustomer() {
         System.out.print("고객 이름: ");
@@ -83,6 +64,18 @@ public class CustomerManagementss {
         Customer customer = new Customer(name, phoneNumber);
         customers.add(customer);
         System.out.println("고객이 추가되었습니다.");
+        String filePath = "C:\\Program Files\\Javaling\\CustomerDB.txt"; // 실제 파일 경로로 변경해야 합니다.
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            for (Customer customer2 : customers) {
+                writer.write(customer2.getName() + "," + customer2.getPhoneNumber());
+                writer.newLine();
+            }
+            System.out.println("데이터가 파일에 저장되었습니다.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
     }
 
     private static void updateCustomer() {
@@ -97,24 +90,37 @@ public class CustomerManagementss {
 
         System.out.print("새로운 전화번호: ");
         String newPhoneNumber = scanner.nextLine();
+        
         targetCustomer = new Customer(targetCustomer.getName(), newPhoneNumber);
         System.out.println("고객 정보가 수정되었습니다.");
+        
     }
 
     private static void deleteCustomer() {
-        System.out.print("삭제할 고객의 이름: ");
-        String targetName = scanner.nextLine();
+    	System.out.print("삭제할 고객의 이름: ");
+        String name = scanner.nextLine();
 
-        Customer targetCustomer = findCustomer(targetName);
-        if (targetCustomer == null) {
-            System.out.println("고객을 찾을 수 없습니다.");
-            return;
+        Iterator<Customer> iterator = customers.iterator();
+        while (iterator.hasNext()) {
+            Customer customer = iterator.next();
+            if (customer.getName().equals(name)) {
+                iterator.remove();
+                System.out.println("고객이 삭제되었습니다.");
+            }
         }
 
-        customers.remove(targetCustomer);
-        System.out.println("고객이 삭제되었습니다.");
+        String filePath = "C:\\Program Files\\Javaling\\CustomerDB.txt"; // 실제 파일 경로로 변경해야 합니다.
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            for (Customer customer : customers) {
+                writer.write(customer.getName() + "," + customer.getPhoneNumber());
+                writer.newLine();
+            }
+            System.out.println("데이터가 파일에서 삭제되었습니다.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-    
+    	
     private static void viewCustomers() {
         if (customers.isEmpty()) {
             System.out.println("등록된 고객이 없습니다.");

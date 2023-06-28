@@ -10,7 +10,7 @@ public class Main {
 		
 		CustomerManagementss cm = new CustomerManagementss();
 		ProductManagement pm = new ProductManagement();
-		Shoppingmall sm = new Shoppingmall();
+		
 		
 		
 		boolean isRunning = true;
