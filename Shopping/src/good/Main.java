@@ -10,15 +10,14 @@ public class Main {
 		
 		CustomerManagementss cm = new CustomerManagementss();
 		ProductManagement pm = new ProductManagement();
-		
+		Shoppingmall sm = new Shoppingmall();
 		
 		
 		boolean isRunning = true;
 
           
           while(isRunning) {
-        	  System.out.println("***************");        	
-        	  System.out.println("쇼핑몰 프로그램");
+        	  System.out.println("**** 쇼핑몰 프로그램 ****");        	   	  
               System.out.println("1. 쇼핑몰");
               System.out.println("2. 고객관리");
               System.out.println("3. 제품 관리");

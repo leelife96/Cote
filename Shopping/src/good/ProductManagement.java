@@ -12,12 +12,13 @@ public class ProductManagement {
 	        Main mm = new Main();
 	        
 	        while (isRunning) {
+	        	System.out.println();
 	            System.out.println("*** 제품 관리 ***");
 	            System.out.println("1. 추가");
 	            System.out.println("2. 삭제");
 	            System.out.println("3. 조회");	        
-	            System.out.println("메뉴를 선택하세요: ");
-	            System.out.print("***************");
+	            System.out.print("메뉴를 선택하세요: ");
+	           
 	            int choice = scanner.nextInt();
 	            scanner.nextLine(); // 개행 문자 제거
 
@@ -29,7 +30,7 @@ public class ProductManagement {
 	                	deleteProduct();
 	                    break;
 	                case 3:
-	                    
+	                	viewProducts();
 	                    break;
 	             
 	                  
@@ -60,6 +61,19 @@ public class ProductManagement {
 
 	        products.remove(targetProduct);
 	        System.out.println("고객이 삭제되었습니다.");
+	    }
+	 
+	 private static void viewProducts() {
+	        if (products.isEmpty()) {
+	            System.out.println("등록된 제품이 없습니다.");
+	        } else {
+	            System.out.println("*** 등록된 제품 목록 ***");
+	            for (Product product : products) {
+	                System.out.println("고객 이름: " + product.getProductName());
+	                System.out.println("전화번호: " + product.getPrice());
+	                System.out.println();
+	            }
+	        }
 	    }
 	 
 	 private static Product findProduct(String name) {

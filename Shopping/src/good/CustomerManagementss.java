@@ -1,13 +1,36 @@
 package good;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 
 public class CustomerManagementss {
 	 
     private static List<Customer> customers = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
+    
+    String filePath = "C:\\Program Files\\Javaling\\DB.txt";
+    
+    
+    try {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
+
+        for (String data : customers) {
+            writer.write(data);
+            writer.newLine();  // 다음 데이터를 쓸 때 줄바꿈
+        }
+
+        writer.close();
+        System.out.println("데이터가 파일에 저장되었습니다.");
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    
+    
+    
+    
 
     public void CusMan() {
         boolean isRunning = true;
