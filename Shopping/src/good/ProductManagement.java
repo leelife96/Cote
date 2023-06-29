@@ -1,5 +1,8 @@
 package good;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 public class ProductManagement {
@@ -16,9 +19,10 @@ public class ProductManagement {
 	            System.out.println("*** 제품 관리 ***");
 	            System.out.println("1. 추가");
 	            System.out.println("2. 삭제");
-	            System.out.println("3. 조회");	        
+	            System.out.println("3. 조회");	
+	            System.out.println("4. 종료");
 	            System.out.print("메뉴를 선택하세요: ");
-	           
+	        
 	            int choice = scanner.nextInt();
 	            scanner.nextLine(); // 개행 문자 제거
 
@@ -32,6 +36,9 @@ public class ProductManagement {
 	                case 3:
 	                	viewProducts();
 	                    break;
+	                case 4:
+	                	mm.start();
+	                	break;
 	             
 	                  
 	            }
@@ -47,7 +54,20 @@ public class ProductManagement {
 	        Product product = new Product(productname, price);
 	        products.add(product);
 	        System.out.println("고객이 추가되었습니다.");
+	        
+	        String filePath = "C:\\Program Files\\Javaling\\ProductDB.txt";
+	        
+	        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+	            for (Product product2 : products) {
+	                writer.write(product2.getProductName() + "," + product2.getPrice());
+	                writer.newLine();
+	            }
+	            System.out.println("데이터가 파일에 저장되었습니다.");
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
 	    }
+	 
 	 
 	 private static void deleteProduct() {
 	        System.out.print("삭제할 제품명: ");
@@ -61,6 +81,17 @@ public class ProductManagement {
 
 	        products.remove(targetProduct);
 	        System.out.println("고객이 삭제되었습니다.");
+	        
+	        String filePath = "C:\\Program Files\\Javaling\\ProductDB.txt"; // 실제 파일 경로로 변경해야 합니다.
+	        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+	            for (Product product : products) {
+	                writer.write(product.getProductName() + "," + product.getPrice());
+	                writer.newLine();
+	            }
+	            System.out.println("데이터가 파일에서 삭제되었습니다.");
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
 	    }
 	 
 	 private static void viewProducts() {
@@ -69,8 +100,8 @@ public class ProductManagement {
 	        } else {
 	            System.out.println("*** 등록된 제품 목록 ***");
 	            for (Product product : products) {
-	                System.out.println("고객 이름: " + product.getProductName());
-	                System.out.println("전화번호: " + product.getPrice());
+	                System.out.println("제품명: " + product.getProductName());
+	                System.out.println("가격: " + product.getPrice());
 	                System.out.println();
 	            }
 	        }

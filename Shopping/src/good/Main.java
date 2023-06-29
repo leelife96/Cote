@@ -10,6 +10,7 @@ public class Main {
 		
 		CustomerManagementss cm = new CustomerManagementss();
 		ProductManagement pm = new ProductManagement();
+		LoginProgram lp = new LoginProgram();
 		
 		
 		
@@ -22,14 +23,13 @@ public class Main {
               System.out.println("2. 고객관리");
               System.out.println("3. 제품 관리");
               System.out.print("어떤 메뉴를 선택하시겠습니까? ");
-                 
-              
               int menuChoice = sc.nextInt();
+                
               sc.nextLine();
               
               switch(menuChoice) {
               	case 1:
-              		
+              		lp.run();
               		break;
               	case 2:
               		cm.CusMan();

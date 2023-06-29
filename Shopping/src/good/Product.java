@@ -3,6 +3,7 @@ package good;
 public class Product {
 	  private String productname;
 	    private String price;
+	    
 
 	    public Product(String productname, String price) {
 	        this.productname = productname;

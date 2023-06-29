@@ -8,7 +8,7 @@ public class CustomerManagementss {
 	
     private static List<Customer> customers = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
-    
+   
     
 
     public void CusMan() {
@@ -80,21 +80,47 @@ public class CustomerManagementss {
 
     private static void updateCustomer() {
         System.out.print("수정할 고객의 이름: ");
-        String targetName = scanner.nextLine();
+        String name = scanner.nextLine();
 
-        Customer targetCustomer = findCustomer(targetName);
-        if (targetCustomer == null) {
-            System.out.println("고객을 찾을 수 없습니다.");
-            return;
+        Customer foundCustomer = null;
+        for (Customer customer : customers) {
+            if (customer.getName().equals(name)) {
+                foundCustomer = customer;
+                
+                break;
+            }
         }
 
-        System.out.print("새로운 전화번호: ");
-        String newPhoneNumber = scanner.nextLine();
-        
-        targetCustomer = new Customer(targetCustomer.getName(), newPhoneNumber);
-        System.out.println("고객 정보가 수정되었습니다.");
-        
+        if (foundCustomer != null) {
+            System.out.println("고객 정보를 수정합니다.");
+
+            System.out.print("새로운 이름: ");
+            String newName = scanner.nextLine();
+            foundCustomer.setName(newName);
+
+            System.out.print("새로운 전화번호: ");
+            String newPhoneNumber = scanner.nextLine();
+            foundCustomer.setPhoneNumber(newPhoneNumber);
+            	
+
+            System.out.println("고객 정보가 성공적으로 수정되었습니다.");
+        } else {
+            System.out.println("해당하는 이름의 고객이 없습니다.");
+        }
+        String filePath = "C:\\Program Files\\Javaling\\CustomerDB.txt"; // 실제 파일 경로로 변경해야 합니다.
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            for (Customer customer : customers) {
+                writer.write(customer.getName() + "," + customer.getPhoneNumber());
+                writer.newLine();
+            }
+            System.out.println("데이터가 파일에서 삭제되었습니다.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
+   
+    
 
     private static void deleteCustomer() {
     	System.out.print("삭제할 고객의 이름: ");
@@ -108,7 +134,7 @@ public class CustomerManagementss {
                 System.out.println("고객이 삭제되었습니다.");
             }
         }
-
+        
         String filePath = "C:\\Program Files\\Javaling\\CustomerDB.txt"; // 실제 파일 경로로 변경해야 합니다.
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             for (Customer customer : customers) {

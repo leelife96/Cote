@@ -10,13 +10,26 @@ class Customer {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+
+
+	
+	
 }
 
  
