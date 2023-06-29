@@ -54,7 +54,7 @@ public class LoginProgram {
         System.out.print("아이디를 입력하세요: ");
         String username = scanner.nextLine();
         System.out.print("비밀번호를 입력하세요: ");
-        String password = scanner.nextLine();
+        String password = scanner.nextLine();	
 
         if (users.containsKey(username) && users.get(username).equals(password)) {
             System.out.println("로그인에 성공했습니다. 환영합니다, " + username + "님!");   

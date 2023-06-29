@@ -46,12 +46,15 @@ public class ProductManagement {
 	        scanner.close();
 	}
 	 private static void addProduct() {
+		 	System.out.print("상품번호: ");
+	        String productnum = scanner.nextLine();
 	        System.out.print("제품 명: ");
 	        String productname = scanner.nextLine();
 	        System.out.print("가격: ");
 	        String price = scanner.nextLine();
+	        
 
-	        Product product = new Product(productname, price);
+	        Product product = new Product(productnum, productname, price);
 	        products.add(product);
 	        System.out.println("고객이 추가되었습니다.");
 	        
@@ -59,7 +62,7 @@ public class ProductManagement {
 	        
 	        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
 	            for (Product product2 : products) {
-	                writer.write(product2.getProductName() + "," + product2.getPrice());
+	                writer.write(product2.getProductNum() + "," + product2.getProductName() + "," + product2.getPrice());
 	                writer.newLine();
 	            }
 	            System.out.println("데이터가 파일에 저장되었습니다.");
@@ -100,6 +103,7 @@ public class ProductManagement {
 	        } else {
 	            System.out.println("*** 등록된 제품 목록 ***");
 	            for (Product product : products) {
+	            	System.out.println("상품번호: " + product.getProductNum());
 	                System.out.println("제품명: " + product.getProductName());
 	                System.out.println("가격: " + product.getPrice());
 	                System.out.println();

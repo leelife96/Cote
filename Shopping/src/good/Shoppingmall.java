@@ -49,6 +49,7 @@ public class Shoppingmall {
 
 	private void showProductList() {
 		   System.out.println("========== 상품 목록 ==========");
+		   
 	        List<String> productList = loadProductListFromFile("C:\\Program Files\\Javaling\\ProductDB.txt"); // 상품 목록이 저장된 텍스트 파일 경로
 	        if (productList.isEmpty()) {
 	            System.out.println("상품이 없습니다.");
@@ -91,7 +92,8 @@ public class Shoppingmall {
 
 	
 	public static void main(String[] args) {
-		
+		Shoppingmall sm = new Shoppingmall();
+		sm.showMainMenu();
 	}
 }
 
