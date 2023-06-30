@@ -1,18 +1,25 @@
 package good;
 
 public class Product {
-		private String productnum;
+		private String pid;
+		private String productcount;
 	  	private String productname;
 	    private String price;
 	    
 
-	    public Product(String productnum, String productname, String price) {
+	    public Product(String pid, String productcount, String productname, String price) {
+	    	this.pid = pid;
+	    	this.productcount = productcount;
 	        this.productname = productname;
 	        this.price = price;
-	        this.productnum = productnum;
+	        
+	        
 	    }
-	    public String getProductNum() {
-	        return productnum;
+	    public String getPID() {
+	        return pid;
+	    }
+	    public String getProductCount() {
+	        return productcount;
 	    }
 
 	    public String getProductName() {

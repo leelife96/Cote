@@ -51,6 +51,7 @@ public class LoginProgram {
     private void login() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("로그인을 진행합니다.");
+        
         System.out.print("아이디를 입력하세요: ");
         String username = scanner.nextLine();
         System.out.print("비밀번호를 입력하세요: ");
@@ -80,6 +81,8 @@ public class LoginProgram {
             users.put(username, password);
             saveUserInfoToFile(username, password);
             System.out.println("회원가입이 완료되었습니다. 로그인해주세요.");
+            
+            
         }
     }
     

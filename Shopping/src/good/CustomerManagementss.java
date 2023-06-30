@@ -56,19 +56,21 @@ public class CustomerManagementss {
 
 
     private static void addCustomer() {
+    	 System.out.print("UID: ");
+         String uid = scanner.nextLine();
         System.out.print("고객 이름: ");
         String name = scanner.nextLine();
         System.out.print("전화번호: ");
         String phoneNumber = scanner.nextLine();
 
-        Customer customer = new Customer(name, phoneNumber);
+        Customer customer = new Customer(uid, name, phoneNumber);
         customers.add(customer);
         System.out.println("고객이 추가되었습니다.");
         String filePath = "C:\\Program Files\\Javaling\\CustomerDB.txt"; // 실제 파일 경로로 변경해야 합니다.
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             for (Customer customer2 : customers) {
-                writer.write(customer2.getName() + "," + customer2.getPhoneNumber());
+                writer.write(customer2.getUID() + "," + customer2.getName() + "," + customer2.getPhoneNumber());
                 writer.newLine();
             }
             System.out.println("데이터가 파일에 저장되었습니다.");
@@ -153,6 +155,7 @@ public class CustomerManagementss {
         } else {
             System.out.println("*** 등록된 고객 목록 ***");
             for (Customer customer : customers) {
+            	System.out.println("UID: " + customer.getUID());
                 System.out.println("고객 이름: " + customer.getName());
                 System.out.println("전화번호: " + customer.getPhoneNumber());
                 System.out.println();
