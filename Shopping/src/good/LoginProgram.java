@@ -118,4 +118,3 @@ public class LoginProgram {
         program.run();
     }
 }
-

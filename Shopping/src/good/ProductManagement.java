@@ -58,7 +58,7 @@ public class ProductManagement {
 
 	        Product product = new Product(pid, productcount, productname, price);
 	        products.add(product);
-	        System.out.println("고객이 추가되었습니다.");
+	        System.out.println("상품이 추가되었습니다.");
 	        
 	        String filePath = "C:\\Program Files\\Javaling\\ProductDB.txt";
 	        
