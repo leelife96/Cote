@@ -20,6 +20,7 @@ public class Shoppingmall {
 	    while (isRunning) {
 	        System.out.println("========== 쇼핑몰 메인 ==========");
 	        System.out.println("1. 상품 보기 & 주문하기");
+	        System.out.println("2. 주문내역보기");
 	        System.out.println("0. 종료");
 	        System.out.print("메뉴를 선택하세요: ");
 	        int choice = scanner.nextInt();
@@ -39,6 +40,10 @@ public class Shoppingmall {
 	                break;
 	        }
 	    }
+	}
+	
+	private void orderListView() {
+		
 	}
 
 	private void showProductListAndOrder() {
@@ -77,13 +82,13 @@ public class Shoppingmall {
 
 	                // 업데이트된 상품 정보를 생성
 	                String updatedProductInfo = pid + "," + remainingQuantity + "," + productName + "," + price;
-
+	                
 	                // 상품 목록 업데이트
 	                productList.set(productNumber - 1, updatedProductInfo);
-
+	                
 	                System.out.println(quantity + "개의 " + productName + "을(를) 주문하였습니다.");
 	                System.out.println("주문이 완료되었습니다.");
-
+	                
 	                // 상품 정보를 파일에 업데이트
 	                String filePath = "C:\\Program Files\\Javaling\\ProductDB.txt";
 	                try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {

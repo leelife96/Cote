@@ -158,6 +158,7 @@ public class CustomerManagementss {
             	System.out.println("UID: " + customer.getUID());
                 System.out.println("고객 이름: " + customer.getName());
                 System.out.println("전화번호: " + customer.getPhoneNumber());
+                
                 System.out.println();
             }
         }

@@ -78,26 +78,35 @@ public class LoginProgram {
         } else {
             System.out.print("비밀번호를 입력하세요: ");
             String password = scanner.nextLine();
+            
+            
+           
             users.put(username, password);
             saveUserInfoToFile(username, password);
             System.out.println("회원가입이 완료되었습니다. 로그인해주세요.");
-            
-            
+         
         }
     }
     
     private static void saveUserInfoToFile(String username, String password) {
-        String filePath = "C:\\Program Files\\Javaling\\LoginDB.txt"; // 파일 경로와 파일명을 적절하게 수정해주세요.
+        String loginFilePath = "C:\\Program Files\\Javaling\\LoginDB.txt"; // LoginDB.txt 파일 경로
+        String customerFilePath = "C:\\Program Files\\Javaling\\CustomerDB.txt"; // CustomerDB.txt 파일 경로
 
         try {
-            FileWriter writer = new FileWriter(filePath, true);
-            writer.write(username + "," + password + "\n");
-            writer.close();
+            FileWriter loginWriter = new FileWriter(loginFilePath, true);
+            loginWriter.write(username + "," + password + "\n");
+            loginWriter.close();
+
+            FileWriter customerWriter = new FileWriter(customerFilePath, true);
+            Customer customer = new Customer(username, "이름을 입력하세요", "전화번호를 입력하세요"); // 새로운 고객 생성
+            customerWriter.write(customer.getUID() + "," + customer.getName() + "," + customer.getPhoneNumber() + "\n");
+            customerWriter.close();
         } catch (IOException e) {
             System.out.println("파일에 회원정보를 저장하는 중 오류가 발생했습니다.");
             e.printStackTrace();
         }
     }
+
 
     
     
