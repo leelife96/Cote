@@ -11,6 +11,7 @@ import java.nio.file.*;
 		
 		static ShoppingMain sm = new ShoppingMain();
 		
+		
 		public static void login() {
 		    Scanner scanner = new Scanner(System.in);
 		    System.out.println("=== 로그인 ===");

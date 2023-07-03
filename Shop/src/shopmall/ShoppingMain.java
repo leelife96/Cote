@@ -27,7 +27,8 @@ public class ShoppingMain {
             System.out.println("1. 주문하기");
             System.out.println("2. 상품 리스트 보기");
             System.out.println("3. 주문 내역 보기");
-            System.out.println("4. 고객 정보 보기");
+            System.out.println("4. 주문취소");
+           
             System.out.println("0. 종료");
             System.out.print("메뉴를 선택하세요: ");
             int choice = scanner.nextInt();

@@ -5,16 +5,21 @@ import java.io.*;
 
 	public class Main {
 		
-		public static final String CUSTOMER_FILE_PATH = "C:\\Program Files\\Javaling\\CustomerDB.txt";
-		public static Map<Integer, Customer> customerMap = new HashMap<>();
-		 private static int customerCount = 0;	
+		public static final String CUSTOMER_FILE_PATH = "C:\\Program Files\\Javaling\\CustomerDB.txt"; // 모든 영역에서 고정된 값으로 사용하는 상수인 CUSTOMER_FILE_PATH에 
+																									   // "CustomerDB.txt" 텍스트 파일을 대입한다.
+		
+	
+		
+		public static Map<Integer, Customer> customerMap = new HashMap<>(); // 초기값 지정
+		 																	// Map<Integer, Customer>는 Integer를 키(key)로 가지고 Customer 객체를 값(value)으로 가지는 맵을 나타냅니다
+		
 		
 		public static void start() {
 			
-			 customerManagementMenu cmm = new  customerManagementMenu();
-			 productManagementMenu pmm = new productManagementMenu();
-			 Login login = new Login();
-		        Scanner scanner = new Scanner(System.in);
+				customerManagementMenu cmm = new  customerManagementMenu(); // customerManagementMenu의 객체 cmm을 생성
+			 	productManagementMenu pmm = new productManagementMenu(); // productManagementMenu의 객체 pmm을 생성
+			 	Login login = new Login(); // Login의 객체 login을 생성
+		        Scanner scanner = new Scanner(System.in);  // 입력
 	
 		        while (true) {
 		            System.out.println("====== 쇼핑몰 프로그램 ======");
@@ -27,7 +32,7 @@ import java.io.*;
 	
 		            switch (choice) {
 		                case 1:
-		                    login.login();
+		                    login.login(); // login() 호출
 		                    break;
 		                case 2:
 		                	
@@ -52,5 +57,5 @@ import java.io.*;
 	public static void main(String[] args) {
 		
 		 	start();
+	}
 }
-	 }

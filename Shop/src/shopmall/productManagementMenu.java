@@ -10,10 +10,14 @@ import java.nio.file.*;
 
 public class productManagementMenu {
 	
-	public static final String PRODUCT_FILE_PATH = "C:\\Program Files\\Javaling\\ProductDB.txt";
-	public static Map<Integer, Product> productMap = new HashMap<>();
-	private static List<Product> productList = new ArrayList<>();
-	private static int productCount = 0;	
+	public static final String PRODUCT_FILE_PATH = "C:\\Program Files\\Javaling\\ProductDB.txt"; // 모든 영역에서 고정된 값으로 사용하는 상수인 PRODUCT_FILE_PATH에 
+	   																							// "ProductDB.txt" 텍스트 파일을 대입한다.
+	
+	public static Map<Integer, Product> productMap = new HashMap<>(); 	// 초기값 지정
+																		// Map<Integer, Product>는 Integer를 키(key)로 가지고 Product 객체를 값(value)으로 가지는 맵을 나타냅니다
+	private static List<Product> productList = new ArrayList<>();    // Product 객체를 저장하는 리스트를 나타냅니다.
+	
+	private static int productCount = 0;	// 상품번호
 
 	public static void proman() {
 		 Scanner scanner = new Scanner(System.in);
@@ -69,13 +73,13 @@ public class productManagementMenu {
 	
 	
 	    
-	    // 고객 정보를 저장할 문자열 생성
+	    // 상품 정보를 저장할 문자열 생성
 	    Product product = new Product(++productCount, productName, productPrice, productNumber );
 	
-	    // HashMap에 고객 정보 추가
+	    // HashMap에 상품 정보 추가
 	    productMap.put(productCount, product);
 	    
-	 // ArrayList에 고객 정보 추가
+	    // ArrayList에 고객 정보 추가
 	    productList.add(product);
 	    
 	    // 텍스트 파일에 고객 정보 저장
@@ -95,27 +99,27 @@ public class productManagementMenu {
 	    System.out.print("삭제할 상품 번호를 입력하세요: ");
 	    int productNumberToDelete = scanner.nextInt();
 
-	    // HashMap에서 고객 정보 삭제
+	    // HashMap에서 상품 정보 삭제
 	    Product deletedProduct = productMap.remove(productNumberToDelete);
 
 	    if (deletedProduct != null) {
-	        // ArrayList에서 고객 정보 삭제
-	    	productList.remove(deletedProduct);
+	        // ArrayList에서 상품 정보 삭제
+	        productList.remove(deletedProduct);
 
-	        // 텍스트 파일에서 해당 고객 정보 삭제
+	        // 텍스트 파일에서 해당 상품 정보 삭제
 	        try {
-	            List<String> lines2 = Files.readAllLines(Paths.get(PRODUCT_FILE_PATH));
-	            List<String> updatedLines2 = new ArrayList<>();
+	            List<String> lines = Files.readAllLines(Paths.get(PRODUCT_FILE_PATH));
+	            List<String> updatedLines = new ArrayList<>();
 
-	            for (String line2 : lines2) {
-	                // 해당 고객 번호의 정보를 제외하고 다시 작성
-	                if (!line2.contains("상품번호 : " + productNumberToDelete)) {
-	                    updatedLines2.add(line2);
+	            for (String line : lines) {
+	                // 해당 상품 번호의 정보를 제외하고 다시 작성
+	                if (!line.startsWith(productNumberToDelete + ",")) {
+	                    updatedLines.add(line);
 	                }
 	            }
 
 	            // 파일에 업데이트된 내용 쓰기
-	            Files.write(Paths.get(PRODUCT_FILE_PATH), updatedLines2, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
+	            Files.write(Paths.get(PRODUCT_FILE_PATH), updatedLines, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
 
 	            System.out.println("상품 정보가 성공적으로 삭제되었습니다.");
 	        } catch (IOException e) {
@@ -125,6 +129,7 @@ public class productManagementMenu {
 	        System.out.println("입력한 상품 번호에 해당하는 상품 정보가 없습니다.");
 	    }
 	}
+
 	
 	public static void displayProductRecords() {
 	    System.out.println("=== 상품 정보 조회 ===");
