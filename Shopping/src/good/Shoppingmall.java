@@ -42,9 +42,7 @@ public class Shoppingmall {
 	    }
 	}
 	
-	private void orderListView() {
-		
-	}
+	
 
 	private void showProductListAndOrder() {
 	    System.out.println("========== 상품 목록 ==========");
