@@ -118,7 +118,7 @@ public class customerManagementMenu {
 	            }
 
 	            
-	            // 모든 줄에 대한 순회가 끝나면, 업데이트된 줄을 파일에 쓰여 기존 파일을 덮어씁니다. 이를 위해 Files.write() 메서드를 사용하며,
+	            // 모든 줄에 대한 순회가 끝나면, 업데이트된 줄을 파일에 쓰여 기존 파일을 덮어씁니다. 이를 위해 Files.write() 메서드를 사용하며,j
 	            // StandardOpenOption.WRITE와 StandardOpenOption.TRUNCATE_EXISTING 옵션을 함께 사용하여 파일을 업데이트된 내용으로 덮어쓰게 됩니다.
 	            Files.write(Paths.get(CUSTOMER_FILE_PATH), updatedLines, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
 
