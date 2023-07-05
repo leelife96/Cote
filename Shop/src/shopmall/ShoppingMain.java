@@ -41,7 +41,7 @@ public class ShoppingMain {
                 case 2:
                 	ProductList();
                     break;
-                case 3:	
+                case 3:		
                 	showOrderHistory();
                     break;
               
@@ -210,8 +210,8 @@ public class ShoppingMain {
 		            while ((line = reader.readLine()) != null) {
 		                productList.add(line);
 		            }
-		        } catch (IOException e) {
-		            e.printStackTrace();
+		        } catch (IOException e) { 
+		            e.printStackTrace(); 
 		        }
 		
 		        return productList;
