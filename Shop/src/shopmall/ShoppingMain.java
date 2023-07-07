@@ -27,12 +27,12 @@ public class ShoppingMain {
             System.out.println("1. 주문하기");
             System.out.println("2. 상품 리스트 보기");
             System.out.println("3. 주문 내역 보기");
-            System.out.println("4. 주문취소");
-           
-            System.out.println("0. 종료");
+            System.out.println("4. 메인 메뉴로 돌아가기");
+      
             System.out.print("메뉴를 선택하세요: ");
             int choice = scanner.nextInt();
-
+          
+            
             switch (choice) {
                 case 1:
                  
@@ -44,8 +44,7 @@ public class ShoppingMain {
                 case 3:		
                 	showOrderHistory();
                     break;
-              
-                case 0:
+                case 4:
                     mm.start();
                     break;
                 default:
@@ -138,8 +137,8 @@ public class ShoppingMain {
 	                
 	                // 주문 내역에 추가하기 위해 주문의 총 가격을 계산하여 totalPrice 변수에 저장합니다.
                     double totalPrice = Double.parseDouble(price) * quantity;
-                    String orderDetails = "고객 번호: " + loggedInCustomerNumber +  // 주문 상세 내용을 문자열 형식으로 작성하여 orderDetails 변수에 저장합니다.
-                            ", 상품번호: " + productNumber +
+                    String orderDetails =   // 주문 상세 내용을 문자열 형식으로 작성하여 orderDetails 변수에 저장합니다.
+                            "상품번호: " + productNumber +
                             ", 상품명: " + productName +
                             ", 가격: " + price +
                             ", 수량: " + quantity +

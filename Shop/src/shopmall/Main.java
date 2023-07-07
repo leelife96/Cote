@@ -25,7 +25,7 @@ import java.io.*;
 		            System.out.println("====== 쇼핑몰 프로그램 ======");
 		            System.out.println("1. 쇼핑몰");
 		            System.out.println("2. 고객관리");
-		            System.out.println("3. 제품관리");
+		            System.out.println("3. d제품관리");
 		           
 		            System.out.print("메뉴를 선택 하시오.: ");
 		            int choice = scanner.nextInt();

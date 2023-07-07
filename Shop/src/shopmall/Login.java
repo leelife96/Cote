@@ -9,7 +9,7 @@ import java.nio.file.*;
 	
 	public class Login extends customerManagementMenu {
 		
-		static ShoppingMain sm = new ShoppingMain();
+		 static ShoppingMain sm = new ShoppingMain();
 		
 		
 		public static void login() {
