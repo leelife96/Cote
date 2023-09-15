@@ -7,4 +7,7 @@ public class Player {
         this.name = name;
         this.stone = stone;
     }
+    
+    
+    
 }
