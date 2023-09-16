@@ -8,6 +8,13 @@ public class Player {
         this.stone = stone;
     }
     
+    public String getCircle() {
+		return stone;
+    	
+    }
     
+    public String getName() {
+    	return name;
+    }
     
 }
